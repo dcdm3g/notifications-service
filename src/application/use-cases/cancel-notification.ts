@@ -13,13 +13,14 @@ export class CancelNotification {
 	) {}
 
 	async execute({ notificationId }: CancelNotificationRequest): Promise<void> {
-		const notification = await this.notificationsRepository.findById(notificationId)
+		const notification =
+			await this.notificationsRepository.findById(notificationId)
 
 		if (!notification) {
 			throw new NotificationNotFoundError()
 		}
 
-    notification.cancel()
-    await this.notificationsRepository.update(notification)
+		notification.cancel()
+		await this.notificationsRepository.update(notification)
 	}
 }

@@ -14,11 +14,7 @@ export class PrismaNotificationMapper {
 		}
 	}
 
-	static toDomain({
-		content,
-		id,
-		...rest
-	}: PrismaNotification): Notification {
+	static toDomain({ content, id, ...rest }: PrismaNotification): Notification {
 		return new Notification({ content: new Content(content), ...rest }, id)
 	}
 }

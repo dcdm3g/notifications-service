@@ -13,8 +13,8 @@ import {
 	HttpCode,
 	Param,
 	ParseUUIDPipe,
-	Post,
 	Patch,
+	Post,
 } from '@nestjs/common'
 
 @Controller()
@@ -43,16 +43,20 @@ export class NotificationsController {
 	}
 
 	@Get('/recipients/:recipientId/notifications')
-	async listFromRecipient(@Param('recipientId', ParseUUIDPipe) recipientId: string) {
+	async listFromRecipient(
+		@Param('recipientId', ParseUUIDPipe) recipientId: string,
+	) {
 		const { notifications } = await this.listRecipientNotifications.execute({
 			recipientId,
 		})
-		
+
 		return { notifications: notifications.map(NotificationViewModel.toHTTP) }
 	}
 
 	@Get('/recipients/:recipientId/notifications/count')
-	async countFromRecipient(@Param('recipientId', ParseUUIDPipe) recipientId: string) {
+	async countFromRecipient(
+		@Param('recipientId', ParseUUIDPipe) recipientId: string,
+	) {
 		const { count } = await this.countRecipientNotifications.execute({
 			recipientId,
 		})

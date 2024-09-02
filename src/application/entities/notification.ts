@@ -20,7 +20,7 @@ export class Notification {
 			NotificationProps,
 			'createdAt' | 'readAt' | 'canceledAt'
 		>,
-		id?: string
+		id?: string,
 	) {
 		this._id = id ?? randomUUID()
 

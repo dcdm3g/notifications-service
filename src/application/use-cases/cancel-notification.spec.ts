@@ -13,7 +13,7 @@ describe('CancelNotification (use-case)', () => {
 		await cancelNotification.execute({ notificationId: notification.id })
 
 		expect(notificationsRepository.notifications).toEqual([
-			expect.objectContaining({ canceledAt: expect.any(Date) })
+			expect.objectContaining({ canceledAt: expect.any(Date) }),
 		])
 	})
 

@@ -19,6 +19,6 @@ export class CountRecipientNotifications {
 		const count =
 			await this.notificationsRepository.countByRecipientId(recipientId)
 
-    return { count }
+		return { count }
 	}
 }
